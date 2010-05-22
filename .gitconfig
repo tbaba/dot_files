@@ -1,0 +1,17 @@
+[user]
+  user = harakirisoul
+  name = "tatsuro baba"
+  email = harakirisoul@gmail.com
+  editor = vi
+
+[color]
+  status = auto
+  diff = auto
+  branche = auto
+
+[alias]
+  co = checkout
+  s = status
+  pr = pull --rebase
+
+
