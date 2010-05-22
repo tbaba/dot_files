@@ -13,5 +13,5 @@
   co = checkout
   s = status
   pr = pull --rebase
-
-
+[core]
+	editor = vi
