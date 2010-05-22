@@ -98,6 +98,13 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 
 alias where="command -v"
 alias j="jobs -l"
+alias s="screen"
+alias vz="vim ~/.zshrc"
+alias vv="vim ~/.vimrc"
+alias vs="vim ~/.screenrc"
+alias g="git"
+alias gs="git status"
+alias gc="git commit -v"
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
