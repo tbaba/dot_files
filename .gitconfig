@@ -13,5 +13,15 @@
   co = checkout
   s = status
   pr = pull --rebase
+
 [core]
 	editor = vi
+
+[branch "master"]
+    remote = <nickname>
+    merge = <remote-ref>
+    rebase = true
+
+[remote "<nickname>"]
+	url = git@github.com:harakirisoul/dot_files.git
+	fetch = <refspec>

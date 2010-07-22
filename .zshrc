@@ -201,7 +201,6 @@ esac
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
-
 export PATH=~/bin:~/.gem/ruby/1.8/bin:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
 
