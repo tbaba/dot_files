@@ -1,0 +1,11 @@
+ScriptID  SourceID  Filename
+-----
+
+1567 12622 :AutoInstall: rails.vim
+1697 12566 :AutoInstall: surround.vim
+1234 12258 :AutoInstall: yankring.vim
+2098 12770 :AutoInstall: fakeclip.vim
+23 8319 :AutoInstall: EnhancedCommentify.vim
+1664 12520 :AutoInstall: buftabs.vim
+1879 11894 :AutoInstall: AutoComplPop
+1778 6657 :AutoInstall: desert

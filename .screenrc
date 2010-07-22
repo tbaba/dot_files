@@ -1,0 +1,14 @@
+escape ^tt
+vbell off
+shell zsh
+caption always "%{= wg} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%y/%m/%d %{=b wm}%c"
+
+startup_message off
+defscrollback 10000
+bind s windowlist -b
+
+autodetach on  # detach on hangup
+
+logfile "$HOME/.screen/screen-%Y%m%d-%n.log"
+log on
+deflog on
