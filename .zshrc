@@ -105,7 +105,7 @@ alias vv="vim ~/.vimrc"
 alias vs="vim ~/.screenrc"
 alias vg="vim ~/.gitconfig"
 alias g="git"
-alias r="rails"
+alias r="/Users/tatsuro/src/rails/bin/rails"
 alias sc="screen"
 alias t="term -t"
 
