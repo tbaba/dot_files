@@ -10,6 +10,7 @@
 	branche = auto
 
 [alias]
+	b = branch
 	ad = add
 	co = checkout
 	s = status
