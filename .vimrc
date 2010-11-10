@@ -94,3 +94,4 @@ imap <C-k> <ESC>"+gpa
 command! Rroutes :e config/routes.rb
 command! Rschema :e db/schema.rb
 command! Rapp :e config/application.rb
+command! Rinitializer :e config/initializers/
