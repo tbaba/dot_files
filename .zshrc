@@ -1,4 +1,3 @@
-
 ## Environment variable configuration
 #
 # LANG
@@ -14,9 +13,10 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 #
 # set prompt
 #
+autoload -Uz vcs_info
 autoload colors
 colors
-PROMPT="%B%{${bg[cyan]}%}%r ? %{${reset_color}%}%b n,y,a,e :"
+
 PROMPT="%B%{${fg[cyan]}%}$ %{${reset_color}%}%b"
 RPROMPT="%B%{${fg[blue]}%}%n@%m %~% %(!.#.$) %{${reset_color}%}%b"
 
@@ -104,13 +104,19 @@ alias vz="vim ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias vs="vim ~/.screenrc"
 alias vg="vim ~/.gitconfig"
+alias vgem="vim ~/.gemrc"
+alias virb="vim ~/.irbrc"
 alias g="git"
-alias r="rails"
+alias gd="git diff"
+alias one="git one"
+alias r="/var/src/rails/bin/rails"
+# alias r="/Users/tatsuro/gems/rails-3.0.0.rc/bin/rails"
 alias sc="screen"
 alias t="term -t"
 
 alias binstall="bundle install"
 alias vgl="vim ~/.vim/GetLatest/GetLatestVimScripts.dat"
+alias tendon="ssh baba@tendon"
 
 alias zshrc="source ~/.zshrc"
 
@@ -133,6 +139,8 @@ alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
+
+alias -g G=" | grep "
 
 case "${OSTYPE}" in
 darwin*)
@@ -203,6 +211,9 @@ esac
 
 export PATH=~/bin:~/.gem/ruby/1.8/bin:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
+export PATH=/Users/tatsuro/glassfishv3/bin:$PATH
+# export PATH=$PATH:/Users/tatsuro/src/jruby-1.5.1/bin
+if [[ -s /Users/tatsuro/.rvm/scripts/rvm ]] ; then source /Users/tatsuro/.rvm/scripts/rvm ; fi
 
 export PATH=/opt/local/lib/postgresql84/bin:$PATH                  
 export ARCHFLAGS='-arch x86_64'
@@ -210,6 +221,13 @@ export ARCHFLAGS='-arch x86_64'
 export GEM_HOME=~/.gem/ruby/1.8/
 
 if [ "$TERM" = "screen" ]; then
+	preexec () {
+		echo -ne "\ek${1%% *}\e\\"
+	}
 	PROMPT_COMMAND=~/bin/screen_minidir
 	stty start ''
+fi
+
+if [ -x /usr/bin/tscreen -o ]; then
+   alias screen='tscreen'
 fi

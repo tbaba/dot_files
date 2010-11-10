@@ -1,9 +1,5 @@
 require 'rubygems'
-require 'wirble'
-
-# start wirble(with color)
-Wirble.init
-Wirble.colorize
+require 'utility_belt'
 
 def log_to(stream = STDOUT)
   ActiveRecord::Base.logger = Logger.new(stream)

@@ -28,7 +28,7 @@ set laststatus=2
 " カーソル位置を表示する
 set ruler
 " カーソルのある行に下線を引く
-set cursorline
+" set cursorline
 
 " 自動インデントを有効にする
 set autoindent
@@ -65,6 +65,10 @@ let g:buftabs_in_statusline=1
 " 保存とか
 nmap <Space>w :up<CR>
 nmap <Space>q :q<CR>
+nmap <Space>z <C-z>
+
+" Space + hl で:nohl
+nmap <Space>hl :nohl<CR>
 
 " ノーマルモードでもエンターキーで改行を挿入
 noremap <CR> o<ESC>
@@ -75,8 +79,18 @@ map <RIGHT> <ESC>:bn<CR>
 map <UP> <ESC>:ls<CR>
 map <Space>d <ESC>:bd<CR>
 
+" :と数字でバッファ移動
+map <ESC>:1 <ESC>:b1
+
 " CTRL-Spaceでomni補完
 imap <C-Space> <C-x><C-o>
 
 "CTRL-kでクリップボードから貼り付け
 imap <C-k> <ESC>"+gpa
+
+"edit routes & schema
+
+" Edit routes
+command! Rroutes :e config/routes.rb
+command! Rschema :e db/schema.rb
+command! Rapp :e config/application.rb
