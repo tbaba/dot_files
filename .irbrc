@@ -1,5 +1,10 @@
 require 'rubygems'
 require 'wirble'
+require 'webmock'
+require 'pp'
+require 'fakeweb'
+require 'irb_rocket'
+require 'active_record'
 
 # start wirble(with color)
 Wirble.init

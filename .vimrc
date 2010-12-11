@@ -36,8 +36,6 @@ set autoindent
 " シンタックスハイライトを有効化する
 syntax on
 
-colorscheme wombat
-
 "" Ruby, Ruby on Rails, Sinatraなどの開発用オプション
 " 通常、tabはスペース4つ分
 au BufNewFile,BufRead * set tabstop=4 shiftwidth=4

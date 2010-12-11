@@ -1,6 +1,6 @@
 [user]
 	user = harakirisoul
-	name = "tatsuro baba"
+	name = "Tatsuro BABA"
 	email = harakirisoul@gmail.com
 	editor = vi
 
@@ -10,6 +10,7 @@
 	branche = auto
 
 [alias]
+	d = diff
 	b = branch
 	ad = add
 	co = checkout
