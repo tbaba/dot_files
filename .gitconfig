@@ -1,26 +1,33 @@
 [user]
-  user = harakirisoul
-  name = "tatsuro baba"
-  email = harakirisoul@gmail.com
-  editor = vi
+	user = harakirisoul
+	name = "Tatsuro BABA"
+	email = harakirisoul@gmail.com
+	editor = vi
 
 [color]
-  status = auto
-  diff = auto
-  branche = auto
+	status = auto
+	diff = auto
+	branche = auto
 
 [alias]
-  co = checkout
-  s = status
-  pr = pull --rebase
+	d = diff
+	b = branch
+	ad = add
+	co = checkout
+	s = status
+	pr = pull --rebase
+	ci = commit -v
+	l = log
+	lp = log -p
+	one = log --oneline
 
 [core]
 	editor = vi
 
 [branch "master"]
-    remote = <nickname>
-    merge = <remote-ref>
-    rebase = true
+	remote = <nickname>
+	merge = <remote-ref>
+	rebase = true
 
 [remote "<nickname>"]
 	url = git@github.com:harakirisoul/dot_files.git

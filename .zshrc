@@ -16,7 +16,6 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 autoload -Uz vcs_info
 autoload colors
 colors
-
 PROMPT="%B%{${fg[cyan]}%}$ %{${reset_color}%}%b"
 RPROMPT="%B%{${fg[blue]}%}%n@%m %~% %(!.#.$) %{${reset_color}%}%b"
 
@@ -99,6 +98,7 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 alias where="command -v"
 alias j="jobs -l"
 alias s="git status"
+alias one="git one"
 alias v="vim"
 alias vz="vim ~/.zshrc"
 alias vv="vim ~/.vimrc"
@@ -220,6 +220,7 @@ export PATH=/opt/local/lib/postgresql84/bin:$PATH
 export ARCHFLAGS='-arch x86_64'
 
 export GEM_HOME=~/.gem/ruby/1.8/
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 if [ "$TERM" = "screen" ]; then
 	preexec () {
