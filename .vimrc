@@ -19,6 +19,12 @@ filetype indent on
 " ファイル形式別のプラグインを有効にする
 filetype plugin on
 
+" エラーベルを鳴らさない
+set noerrorbells
+
+" バックアップファイルを作らない
+set nobackup
+
 " バッファを切り替えてもundoの効果を失わないようにする
 set hidden
 " 行数を表示する
@@ -36,7 +42,8 @@ set autoindent
 " シンタックスハイライトを有効化する
 syntax on
 
-colorscheme wombat
+" vividchalk as colorscheme
+colorscheme vividchalk
 
 "" Ruby, Ruby on Rails, Sinatraなどの開発用オプション
 " 通常、tabはスペース4つ分
@@ -47,6 +54,7 @@ au BufNewFile,BufRead *.rb set tabstop=2 shiftwidth=2 expandtab
 au BufNewFile,BufRead *.rhtml set tabstop=2 shiftwidth=2 expandtab
 au BufNewFile,BufRead *.html set tabstop=2 shiftwidth=2 expandtab
 au BufNewFile,BufRead *.yml set tabstop=2 shiftwidth=2 expandtab
+au BufNewFile,BufRead *.html.haml set tabstop=2 shiftwidth=2 expandtab
 " RailsはUTF-8で書く　
 au User Rails* set fenc=utf-8
 let g:rubycomplete_buffer_loading=1
