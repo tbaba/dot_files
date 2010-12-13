@@ -112,6 +112,8 @@ alias one="git one"
 alias r="rails"
 alias sc="screen"
 alias t="term -t"
+alias develop_jobnote="ssh -v baba@kebab.dev.grooves.co.jp -R 3200:127.0.0.1:3000 sleep 99999"
+alias jp="ssh baba@163.43.176.139 -p 10022"
 
 alias binstall="bundle install"
 alias vgl="vim ~/.vim/GetLatest/GetLatestVimScripts.dat"
@@ -173,7 +175,7 @@ esac
 unset LSCOLORS
 case "${TERM}" in
 xterm)
-    export TERM=xterm-color
+    export TERM=xterm-256color
     ;;
 kterm)
     export TERM=kterm-color
