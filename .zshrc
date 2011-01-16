@@ -17,7 +17,7 @@ autoload -Uz vcs_info
 autoload colors
 colors
 PROMPT="%B%{${fg[cyan]}%}$ %{${reset_color}%}%b"
-RPROMPT="%B%{${fg[blue]}%}%n@%m %~% %(!.#.$) %{${reset_color}%}%b"
+RPROMPT="%B%{${fg[blue]}%}%n@ %~% %(!.#.$)%{${reset_color}%}%b"
 
 # auto change directory
 #
