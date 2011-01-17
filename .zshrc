@@ -113,13 +113,16 @@ alias r="rails"
 alias sc="screen"
 alias t="term -t"
 alias develop_jobnote="ssh -v baba@kebab.dev.grooves.co.jp -R 3200:127.0.0.1:3000 sleep 99999"
-alias jp="ssh baba@163.43.176.139 -p 10022"
+alias jps="ssh baba@163.43.176.139 -p 10022"
+alias jp="ssh baba@173.255.220.248 -p 10022"
 
 alias binstall="bundle install"
 alias vgl="vim ~/.vim/GetLatest/GetLatestVimScripts.dat"
 alias tendon="ssh baba@tendon"
 
 alias zshrc="source ~/.zshrc"
+
+alias job_posting="cd work/projects/job_posting/"
 
 case "${OSTYPE}" in
 	freebsd*|darwin*)
@@ -211,12 +214,10 @@ esac
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
 export PATH=~/bin:~/.gem/ruby/1.8/bin:$PATH
-export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
 export PATH=/Users/tatsuro/glassfishv3/bin:$PATH
 # export PATH=$PATH:/Users/tatsuro/src/jruby-1.5.1/bin
 if [[ -s /Users/tatsuro/.rvm/scripts/rvm ]] ; then source /Users/tatsuro/.rvm/scripts/rvm ; fi
 
-export PATH=/opt/local/lib/postgresql84/bin:$PATH                  
 export ARCHFLAGS='-arch x86_64'
 
 export GEM_HOME=~/.gem/ruby/1.8/
