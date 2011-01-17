@@ -3,12 +3,12 @@ function! s:RunRspec (opts)
 
   if( expand('%') =~ rails_spec_path_re && filereadable('script/spec') )
     "let command = '!ruby script/spec '
-    let spec_command = '!rspec '
+    let spec_command = '!bundle exec rspec '
     if filereadable('tmp/pids/spec_server.pid')
       let spec_command = spec_command . ' --drb '
     endif
   else
-    let spec_command = '!rspec '
+    let spec_command = '!bundle exec rspec '
   endif
   exe spec_command . a:opts . ' ' . expand('%:p')
 endfunction
