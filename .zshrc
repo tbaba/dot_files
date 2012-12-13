@@ -97,8 +97,13 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 
 alias where="command -v"
 alias j="jobs -l"
-alias s="git status"
+alias s="git status -s -b"
+alias d="git diff"
+alias dc="git diff --cached"
 alias one="git one"
+alias gg="git grep"
+alias l="git log -p --stat --decorate"
+alias vim="/usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/Vim"
 alias v="vim"
 alias vz="vim ~/.zshrc"
 alias vv="vim ~/.vimrc"
@@ -107,14 +112,18 @@ alias vg="vim ~/.gitconfig"
 alias vgem="vim ~/.gemrc"
 alias virb="vim ~/.irbrc"
 alias g="git"
-alias gd="git diff"
-alias one="git one"
+alias deploy_branch='g co -b "deploy-`date '+%Y%m%d%H%M%S'`"'
+alias one="git log --graph --oneline --decorate"
 alias r="rails"
 alias sc="screen"
 alias t="term -t"
-alias develop_jobnote="ssh -v baba@kebab.dev.grooves.co.jp -R 3200:127.0.0.1:3000 sleep 99999"
+alias tunnel="ssh -v baba@kebab -R 3700:127.0.0.1:3000 sleep 99999"
 alias jps="ssh baba@163.43.176.139 -p 10022"
 alias jp="ssh baba@173.255.220.248 -p 10022"
+alias bx="bundle exec"
+alias tblame="tig blame"
+
+alias emoji="open http://www.emoji-cheat-sheet.com/"
 
 alias binstall="bundle install"
 alias vgl="vim ~/.vim/GetLatest/GetLatestVimScripts.dat"
@@ -133,7 +142,6 @@ case "${OSTYPE}" in
 	;;
 esac
 
-alias l="ls"
 alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -l"
@@ -213,15 +221,14 @@ esac
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
-export PATH=~/bin:~/.gem/ruby/1.8/bin:$PATH
+export PATH=/usr/local/bin:~/bin:~/.gem/ruby/1.8/bin:$PATH
 export PATH=/Users/tatsuro/glassfishv3/bin:$PATH
+export BUNDLER_EDITOR=vi
 # export PATH=$PATH:/Users/tatsuro/src/jruby-1.5.1/bin
-if [[ -s /Users/tatsuro/.rvm/scripts/rvm ]] ; then source /Users/tatsuro/.rvm/scripts/rvm ; fi
 
 export ARCHFLAGS='-arch x86_64'
 
 export GEM_HOME=~/.gem/ruby/1.8/
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 if [ "$TERM" = "screen" ]; then
 	preexec () {
@@ -234,3 +241,42 @@ fi
 if [ -x /usr/bin/tscreen -o ]; then
    alias screen='tscreen'
 fi
+
+if [ -f ~/.nvm/nvm.sh ]; then
+	source ~/.nvm/nvm.sh
+
+	if which nvm >/dev/null 2>&1 ; then
+		_nodejs_use_version="v0.6.11"
+		if nvm ls |grep -F -e "${_nodejs_use_version}" > /dev/null 2>&1 ; then
+			nvm use "${_nodejs_use_version}" > /dev/null
+		fi
+		unset _nodejs_use_version
+	fi
+fi
+
+# PATH for groonga
+export GROONGA_CFLAGS="-I/usr/local/groonga/include/groonga"
+export GROONGA_LIBS="-L/usr/local/groonga/lib -lgroonga"
+
+# PATH for AWS
+export AWS_CREDENTIAL_FILE="${HOME}/Src/aws_config/credential-file"
+
+export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home/"
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.3/jars"
+
+export EC2_CERT="${HOME}/Src/aws_config/cert-XES5NAU3EPWXMIVC5G6FZMVFZCA3557D.pem"
+export EC2_PRIVATE_KEY="${HOME}/Src/aws_config/pk-XES5NAU3EPWXMIVC5G6FZMVFZCA3557D.pem"
+
+export AWS_AUTO_SCALING_HOME="${HOME}/Src/AutoScaling-1.0.49.1"
+export AWS_CLOUDWATCH_HOME="${HOME}/Src/CloudWatch-1.0.12.1"
+export AWS_ELB_HOME="${HOME}/Src/ElasticLoadBalancing-1.0.15.1"
+
+export PATH=$AWS_ELB_HOME/bin:$AWS_AUTO_SCALING_HOME/bin:$AWS_CLOUDWATCH_HOME/bin:$PATH
+
+# PATH for Android SDK
+export PATH=$PATH:/Applications/android-sdk/tools
+export PATH=$PATH:/Applications/android-sdk/platforms
+source /Users/tbaba/perl5/perlbrew/etc/bashrc
+
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATJ=/usr/local/sbin:$PATH

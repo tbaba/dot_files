@@ -1,3 +1,34 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rvm'
+Bundle 'tpope/vim-haml'
+Bundle 'skwp/vim-rspec'
+Bundle 'vim-coffee-script'
+Bundle 'Gist.vim'
+Bundle 'yamlvim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimfiler'
+Bundle 'h1mesuke/unite-outline'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'mattn/zencoding-vim'
+Bundle 'othree/html5.vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'scrooloose/nerdtree'
+Bundle 'buftabs'
+Bundle 'TwitVim'
+
 " 文字コードの設定
 set encoding=utf-8
 set termencoding=utf-8
@@ -9,15 +40,11 @@ set hlsearch
 set ignorecase
 " 検索時、大文字から始めたら大文字小文字を無視しない
 set smartcase
-
-" compatibleオプションを無効にする
-set nocompatible
 " ファイル形式の検出
 filetype on
 " ファイル形式別のインデントを有効にする
-filetype indent on
 " ファイル形式別のプラグインを有効にする
-filetype plugin on
+filetype plugin indent on
 
 " エラーベルを鳴らさない
 set noerrorbells
@@ -54,9 +81,12 @@ au BufNewFile,BufRead *.rb set tabstop=2 shiftwidth=2 expandtab
 au BufNewFile,BufRead *.rhtml set tabstop=2 shiftwidth=2 expandtab
 au BufNewFile,BufRead *.html set tabstop=2 shiftwidth=2 expandtab
 au BufNewFile,BufRead *.yml set tabstop=2 shiftwidth=2 expandtab
-au BufNewFile,BufRead *.html.haml set tabstop=2 shiftwidth=2 expandtab
+au BufNewFile,BufRead *.haml set tabstop=2 shiftwidth=2 expandtab
+au BufNewFile,BufRead *.js set tabstop=2 shiftwidth=2 expandtab
+au BufNewFile,BufRead *.js.coffee set tabstop=2 shiftwidth=2 expandtab
 " RailsはUTF-8で書く　
 au User Rails* set fenc=utf-8
+let ruby_space_errors=1
 let g:rubycomplete_buffer_loading=1
 let g:rubycomplete_classes_in_global=1
 let g:rubycomplete_rails=1
@@ -68,6 +98,13 @@ let g:rails_default_database='sqlite3'
 let g:buftabs_only_basename=1
 "バッファタブをステータスライン内に表示する
 let g:buftabs_in_statusline=1
+
+"neocomplcache周りの設定
+let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_enable_smart_case=1
+let g:neocomplcache_enable_camel_case_completion=1
+let g:neocomplcache_enable_underbar_completion=1
+let g:neocomplcache_min_syntax_length=3
 
 " map, nmap
 " 保存とか
@@ -103,3 +140,49 @@ command! Rroutes :e config/routes.rb
 command! Rschema :e db/schema.rb
 command! Rapp :e config/application.rb
 command! Rinitializer :e config/initializers/
+
+function! MagicComment()
+  return "# coding: utf-8\<CR>"
+endfunction
+
+inoreabbrev <buffer> #### <C-R>=MagicComment()<CR>
+
+" Space + . でvimrcを開く
+nnoremap <Space>. :<C-u>edit ~/.vimrc<Enter>
+
+
+
+
+
+" Vimテクニックバイブルのお試し系
+
+" Insertのときにstatuslineの色を変える
+au InsertEnter * hi StatusLine guifg=Black guibg=Yellow gui=none ctermfg=Black ctermbg=Yellow cterm=none
+au InsertLeave * hi StatusLine guifg=White guibg=DarkGray gui=none ctermfg=White ctermbg=DarkGray cterm=none
+
+set listchars=eol:$,tab:>\
+
+autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
+
+
+function! Scouter(file, ...)
+	let pat = '^\s*$\|^\s*"'
+	let lines = readfile(a:file)
+	if !a:0 || !a:1
+		let lines = split(substitute(join(lines, "\n"), '\n\s*\\', '', 'g'), "\n")
+	endif
+	return len(filter(lines,'v:val !~ pat'))
+endfunction
+command! -bar -bang -nargs=? -complete=file Scouter
+			\        echo Scouter(empty(<q-args>) ? $MYVIMRC : expand(<q-args>), <bang>0)
+
+
+function! s:SetupSpeCuke()
+	command! RunTestFile exe '!sc ' . expand('%:p')
+	command! RunTestCase exe '!sc --line ' . line('.') . ' ' . expand('%:p')
+
+	nnoremap -tf :RunTestFile<CR>
+	nnoremap -tc :RunTestCase<CR>
+endfunction
+
+au BufRead,BufNewFile *_spec.rb,*.feature call s:SetupSpeCuke()
