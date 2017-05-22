@@ -1,33 +1,27 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-rvm'
-Bundle 'tpope/vim-haml'
-Bundle 'skwp/vim-rspec'
-Bundle 'vim-coffee-script'
-Bundle 'Gist.vim'
-Bundle 'yamlvim'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimfiler'
-Bundle 'h1mesuke/unite-outline'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'mattn/zencoding-vim'
-Bundle 'othree/html5.vim'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'scrooloose/nerdtree'
-Bundle 'buftabs'
-Bundle 'TwitVim'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-rvm'
+Plugin 'tpope/vim-haml'
+Plugin 'skwp/vim-rspec'
+Plugin 'vim-coffee-script'
+Plugin 'Shougo/neocomplcache'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimfiler'
+Plugin 'h1mesuke/unite-outline'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'othree/html5.vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'scrooloose/nerdtree'
 
 " 文字コードの設定
 set encoding=utf-8
@@ -150,7 +144,10 @@ inoreabbrev <buffer> #### <C-R>=MagicComment()<CR>
 " Space + . でvimrcを開く
 nnoremap <Space>. :<C-u>edit ~/.vimrc<Enter>
 
+" ;と:を入れ替える
+noremap ; :
 
+noremap <Shift>: ;
 
 
 

@@ -1,8 +1,8 @@
 [user]
 	user = harakirisoul
-	name = "Tatsuro BABA"
+	name = "Tatsuro Baba"
 	email = harakirisoul@gmail.com
-	editor = vi
+	editor = vim
 
 [color]
 	status = auto

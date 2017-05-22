@@ -103,8 +103,9 @@ alias dc="git diff --cached"
 alias one="git one"
 alias gg="git grep"
 alias l="git log -p --stat --decorate"
-alias vim="/usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/Vim"
+alias vim="/usr/local/Cellar/macvim/8.0-133/MacVim.app/Contents/bin/vim"
 alias v="vim"
+alias vi="vim"
 alias vz="vim ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias vs="vim ~/.screenrc"
@@ -113,20 +114,15 @@ alias vgem="vim ~/.gemrc"
 alias virb="vim ~/.irbrc"
 alias g="git"
 alias deploy_branch='g co -b "deploy-`date '+%Y%m%d%H%M%S'`"'
-alias one="git log --graph --oneline --decorate"
 alias r="rails"
 alias sc="screen"
 alias t="term -t"
-alias tunnel="ssh -v baba@kebab -R 3700:127.0.0.1:3000 sleep 99999"
-alias jps="ssh baba@163.43.176.139 -p 10022"
-alias jp="ssh baba@173.255.220.248 -p 10022"
 alias bx="bundle exec"
 alias tblame="tig blame"
 
 alias emoji="open http://www.emoji-cheat-sheet.com/"
 
 alias binstall="bundle install"
-alias vgl="vim ~/.vim/GetLatest/GetLatestVimScripts.dat"
 alias tendon="ssh baba@tendon"
 
 alias zshrc="source ~/.zshrc"
@@ -254,6 +250,10 @@ if [ -f ~/.nvm/nvm.sh ]; then
 	fi
 fi
 
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
+
 # PATH for groonga
 export GROONGA_CFLAGS="-I/usr/local/groonga/include/groonga"
 export GROONGA_LIBS="-L/usr/local/groonga/lib -lgroonga"
@@ -273,10 +273,7 @@ export AWS_ELB_HOME="${HOME}/Src/ElasticLoadBalancing-1.0.15.1"
 
 export PATH=$AWS_ELB_HOME/bin:$AWS_AUTO_SCALING_HOME/bin:$AWS_CLOUDWATCH_HOME/bin:$PATH
 
-# PATH for Android SDK
-export PATH=$PATH:/Applications/android-sdk/tools
-export PATH=$PATH:/Applications/android-sdk/platforms
-source /Users/tbaba/perl5/perlbrew/etc/bashrc
-
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATJ=/usr/local/sbin:$PATH
+
+export GITHUB_API_TOKEN=1c6cff1774304255612a488dd1652bf7884d39f7
