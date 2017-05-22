@@ -1,27 +1,25 @@
-set nocompatible
-filetype off
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-vividchalk'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-rvm'
-Plugin 'tpope/vim-haml'
-Plugin 'skwp/vim-rspec'
-Plugin 'vim-coffee-script'
-Plugin 'Shougo/neocomplcache'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimfiler'
-Plugin 'h1mesuke/unite-outline'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'othree/html5.vim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'scrooloose/nerdtree'
+Plug 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-vividchalk'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rvm'
+Plug 'tpope/vim-haml'
+Plug 'skwp/vim-rspec'
+Plug 'Shougo/neocomplcache'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler'
+Plug 'h1mesuke/unite-outline'
+Plug 'vim-ruby/vim-ruby'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'scrooloose/nerdtree'
+
+call plug#end()
 
 " 文字コードの設定
 set encoding=utf-8
