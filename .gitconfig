@@ -22,7 +22,7 @@
 	one = log --oneline
 
 [core]
-	editor = vi
+	editor = vim
 
 [branch "master"]
 	remote = <nickname>
@@ -32,3 +32,5 @@
 [remote "<nickname>"]
 	url = git@github.com:harakirisoul/dot_files.git
 	fetch = <refspec>
+[rebase]
+	autosquash = true

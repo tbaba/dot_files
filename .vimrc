@@ -18,6 +18,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'scrooloose/nerdtree'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -85,6 +86,8 @@ let g:rubycomplete_rails=1
 let g:rails_level=4
 let g:rails_syntax=1
 let g:rails_default_database='sqlite3'
+
+let g:javascript_plugin_flow = 1
 
 "バッファタブにパスを省略してファイル名のみ表示する(buftabs.vim)
 let g:buftabs_only_basename=1
