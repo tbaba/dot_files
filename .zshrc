@@ -275,5 +275,3 @@ export PATH=$AWS_ELB_HOME/bin:$AWS_AUTO_SCALING_HOME/bin:$AWS_CLOUDWATCH_HOME/bi
 
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATJ=/usr/local/sbin:$PATH
-
-export GITHUB_API_TOKEN=1c6cff1774304255612a488dd1652bf7884d39f7
